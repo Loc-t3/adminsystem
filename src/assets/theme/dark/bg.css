@@ -1,0 +1,29 @@
+
+.app-main {
+  background: #304156;
+}
+
+.navbar, .tags-view-container, .drag-tree-table-header, .el-table__header th {
+  background: #304156 !important;
+}
+
+.tree-row, .tags-view-item  {
+  background: #000000 !important;
+}
+
+.tree-column, .el-table .el-table__cell, .tags-view-item,
+.el-dialog__headerbtn .el-dialog__close, .el-input__inner {
+  color: #f4f4f5 !important;
+}
+
+.zip-icon {
+  background-color: #f4f4f5 !important;
+}
+
+.tags-view-item.active {
+  background: #42b983 !important;
+}
+
+.drag-tree-table-header {
+  border-bottom: 1px solid #eee;
+}
