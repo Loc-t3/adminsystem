@@ -75,8 +75,12 @@
 {{ msg }}
 </body>
 <script>
+import OgTable from "@/components/OgTable"
 export default {
   name: "accountGenerator",
+  components: {
+    OgTable
+  },
   data () {
     return {
       msg : 'WELCOME YOUR PROJECT',

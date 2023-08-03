@@ -66,8 +66,12 @@
 {{ msg }}
 </body>
 <script>
+import OgTable from "@/components/OgTable"
 export default {
   name: "authorityManager",
+  components: {
+    OgTable
+  },
   data () {
     return {
       msg : 'WELCOME YOUR PROJECT',
