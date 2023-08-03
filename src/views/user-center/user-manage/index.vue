@@ -18,7 +18,7 @@
             label-position="right"
             label-width="100px"
         >
-          <el-form-item label="id:" prop="appName">
+          <el-form-item label="id:" prop="userId">
             <el-input
                 v-model="queryForm.userId"
                 placeholder="请输入用户id"
@@ -27,7 +27,7 @@
                 @keyup.enter.native=""
             />
           </el-form-item>
-          <el-form-item label="昵称:" prop="appName">
+          <el-form-item label="昵称:" prop="nickName">
             <el-input
                 v-model="queryForm.nickName"
                 placeholder="请输入用户昵称"
@@ -36,7 +36,7 @@
                 @keyup.enter.native=""
             />
           </el-form-item>
-          <el-form-item label="邮箱:" prop="appName">
+          <el-form-item label="邮箱:" prop="email">
             <el-input
                 v-model="queryForm.email"
                 placeholder="请输入用户邮箱"
@@ -45,7 +45,7 @@
                 @keyup.enter.native=""
             />
           </el-form-item>
-          <el-form-item label="手机号:" prop="appName">
+          <el-form-item label="手机号:" prop="phone">
             <el-input
                 v-model="queryForm.phone"
                 placeholder="请输入用户手机号"
@@ -54,7 +54,7 @@
                 @keyup.enter.native=""
             />
           </el-form-item>
-          <el-form-item label="村庄:" prop="appName">
+          <el-form-item label="村庄:" prop="village">
             <el-input
                 v-model="queryForm.village"
                 placeholder="请输入用户所在村庄"
@@ -82,6 +82,7 @@
             @current-change="handleListCurrentChange"
         />
       </div>
+
       <OgTable
           :columns="tableColumns"
           :list="result.list"
@@ -95,8 +96,13 @@
 {{ msg }}
 </body>
 <script>
+import OgTable from "@/components/OgTable"
+
 export default {
   name: "userManager",
+  components: {
+    OgTable
+  },
   data () {
     return {
       msg : 'WELCOME YOUR PROJECT',
@@ -109,7 +115,7 @@ export default {
         'userId': '',
         'userName': '',
         'nickName': '',
-        'enail': '',
+        'email': '',
         'phone': '',
         'village': '',
         'pageNum': 1,
@@ -118,7 +124,17 @@ export default {
       pageSizes: [20, 50, 100, 200, 500],
       result: {
         total: 0,
-        list: []
+        list: [
+          {
+            'userId':'55',
+            'userName':'测试',
+            'nickName':'测试nickName',
+            'email':'测试email',
+            'phone':'测试phone',
+            'userStatus':'0',
+            'village':'测试village'
+          }
+        ]
       }
     }
   },
@@ -127,11 +143,11 @@ export default {
     tableColumns() {
       return [
         { prop: 'userId', label: 'ID', align: 'right', fixed: 'left', minWidth: 80 },
-        { prop: 'userName', label: '应用名称', align: 'left', fixed: 'left', minWidth: 120 },
-        { prop: 'nickName', label: '系统唯一标识', align: 'left', fixed: 'left', minWidth: 120 },
-        { prop: 'enail', label: '表后缀', align: 'left', minWidth: 100 },
-        { prop: 'phone', label: '平台类型', align: 'left', minWidth: 100 },
-        { prop: 'village', label: '接口请求host', align: 'left', minWidth: 120 },
+        { prop: 'userName', label: '用户名', align: 'left', fixed: 'left', minWidth: 120 },
+        { prop: 'nickName', label: '昵称', align: 'left', fixed: 'left', minWidth: 120 },
+        { prop: 'email', label: '邮箱', align: 'left', minWidth: 100 },
+        { prop: 'phone', label: '手机号', align: 'left', minWidth: 100 },
+        { prop: 'village', label: '所在村庄', align: 'left', minWidth: 120 }
       ]
     }
   },

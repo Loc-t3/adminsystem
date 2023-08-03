@@ -23,7 +23,7 @@
       :sortable="item.sortable || false"
       :prop="item.prop"
     >
-      <template v-if="showColumn(item)" v-slot="scope">
+<!--      <template v-if="showColumn(item)" v-slot="scope">
         <span v-if="item.type === 'link'">
           <el-link :href="scope.row[item.prop]" target="_blank" type="primary">{{ scope.row[item.prop] }}</el-link>
         </span>
@@ -95,65 +95,6 @@
             <el-tag> 所有字段 </el-tag>
           </span>
         </span>
-        <div v-else-if="item.type === 'tree'" style="overflow-x: auto;">
-          <el-tree
-            :data="scope.row[item.prop]"
-            :indent="32"
-            :props="item.defaultProps"
-            empty-text="无任何权限"
-            :node-key="item.defaultProps.value"
-            style="border-radius: 5px;"
-          >
-            <span slot-scope="{ node, data }" class="custom-tree-node">
-              <span>{{ node.label }}</span> <span>{{ data.id > 0 ? `(${data.id})` : '' }}</span>
-            </span>
-          </el-tree>
-        </div>
-        <div v-else-if="item.type === 'roleTree'" style="overflow-x: auto;">
-          <el-tree
-            :data="scope.row[item.prop]"
-            :indent="32"
-            :props="item.defaultProps"
-            empty-text="无任何权限"
-            :node-key="item.defaultProps.value"
-            style="border-radius: 5px;"
-          >
-            <span slot-scope="{ node, data }" class="custom-tree-node">
-              <el-link
-                v-if="data.roleId > 0"
-                type="primary"
-                :href="`/permission/role?systemId=${data.systemId}&roleName=${data.roleName}`"
-                target="_blank"
-              >
-                {{ node.label }} ({{ data.roleId }})
-              </el-link>
-              <span v-else>{{ node.label }}</span>
-            </span>
-          </el-tree>
-        </div>
-        <div v-else-if="item.type === 'menuTree'" style="overflow-x: auto;">
-          <el-tree
-            :data="scope.row[item.prop]"
-            :indent="32"
-            :props="item.defaultProps"
-            empty-text="无任何权限"
-            :node-key="item.defaultProps.value"
-            style="border-radius: 5px;"
-          >
-            <span slot-scope="{ node, data }" class="custom-tree-node">
-              <el-button
-                :style="`color: ${(data.type === 1 && '#909399') ||
-                  (data.type === 2 && '#67C23A') || (data.type === 3 && '#E6A23C')};`"
-                size="mini"
-                type="text"
-              >
-                <span v-if="data.type < 3">{{ $trans_menu(data.title) }}</span>
-                <span v-else>{{ $trans_btn(data.title) }}</span>
-                <span style="font-size: 5px;color: gray;">({{ data.name }})</span>
-              </el-button>
-            </span>
-          </el-tree>
-        </div>
         <span v-else-if="item.type === 'switch'">
           <el-switch
             v-model="scope.row[item.prop]"
@@ -171,7 +112,7 @@
         </span>
         <pre v-else-if="item.type === 'pre'" style="overflow: auto">{{ scope.row[item.prop] }}</pre>
         <span v-else>{{ scope.row[item.prop] }}</span>
-      </template>
+      </template>-->
     </el-table-column>
   </el-table>
 </template>
